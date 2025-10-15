@@ -1,0 +1,220 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+:root {
+    --main-color: #d1bb94;
+    --main-text-color: #444947;
+    --secondary-text-color: #abacaa;
+    --main-background-color: #ffffff;
+    --secondary-background-color: #f6f4f2;
+    --main-color-darken: #b8a180;  
+    --main-text-color-brighten: #f4f4f4;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Azeret Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-text-color); 
+    background-color: var(--main-background-color);
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+}
+
+/* GENERIC CLASSES */
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.gap-05 {
+    gap: 0.5rem;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+/* END OF GENERICS */
+
+.loading-banner {
+    width: 100%;
+    height: 100vh;
+    background-color: red;
+    opacity: 1;
+    overflow: hidden;
+    z-index: 9999;
+    animation: collapseAndFadeOut 0.75s ease-out forwards;
+    animation-delay: 2s;
+}
+
+@keyframes collapseAndFadeOut {
+    from {
+        height: 100vh;
+    }
+    to {
+        height: 0;
+        filter: brightness(0.3);
+    }
+}
+
+.loading-banner.final-hidden {
+    display: none;
+}
+
+/* SLIDING TEXT */
+
+.bottom-text-container {
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 30px; 
+    display: flex;          
+    flex-direction: column; 
+    justify-content: flex-end;
+    align-items: start;      
+    color: #333;
+    font-size: 4rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    line-height: 1.2;
+}
+  
+.first-text-line {
+    opacity: 0;
+    animation-name: firstLineAnimation;
+    animation-duration: 1.5s;       
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    position: absolute;
+}
+
+@keyframes firstLineAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(4rem);
+    }
+    33% {
+      opacity: 1;                 
+      transform: translateY(0rem);   
+    }
+    66% {
+      opacity: 1;
+      transform: translateY(-4rem);  
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-8rem);  
+    }
+}
+
+.second-text-line {
+    opacity: 0;
+    animation-name: secondLineAnimation;
+    animation-duration: 1.5s;       
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    position: absolute;
+}
+
+@keyframes secondLineAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(4rem);
+    }
+    33% {
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+    66% {
+        opacity: 1;
+        transform: translateY(0rem);   
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-4rem);  
+    }
+}
+
+.third-text-line {
+    opacity: 0;
+    animation-name: thirdLineAnimation;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;       
+    position: absolute;
+}
+
+@keyframes thirdLineAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+    33% {
+        opacity: 0;
+        transform: translateY(4rem); 
+    }
+    66% {
+        opacity: 0;
+        transform: translateY(4rem);   
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);  
+    }
+}
+
+.landing-banner {
+    height: 100vh;
+    padding: 0rem 4rem;
+    display: flex; 
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.landing-banner h1 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.landing-banner h2 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.icon-link {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
