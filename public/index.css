@@ -70,9 +70,20 @@ body {
     opacity: 1;
     overflow: hidden;
     z-index: 9999;
-    animation: collapseAndFadeOut 0.75s ease-out forwards;
-    animation-delay: 2s;
 }
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.loading-banner.animate-out {
+    animation-name: collapseAndFadeOut;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-out;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
 
 @keyframes collapseAndFadeOut {
     from {
@@ -112,16 +123,17 @@ body {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     position: absolute;
+    transform-origin: top left;
 }
 
 @keyframes firstLineAnimation {
     0% {
       opacity: 0;
-      transform: translateY(4rem);
+      transform: translateY(4rem) rotate(+10deg);
     }
     33% {
       opacity: 1;                 
-      transform: translateY(0rem);   
+      transform: translateY(0rem)rotate(0deg);   
     }
     66% {
       opacity: 1;
@@ -129,7 +141,7 @@ body {
     }
     100% {
       opacity: 1;
-      transform: translateY(-8rem);  
+      transform: translateY(-8rem) ;  
     }
 }
 
@@ -140,6 +152,7 @@ body {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     position: absolute;
+    transform-origin: top left;
 }
 
 @keyframes secondLineAnimation {
@@ -149,15 +162,15 @@ body {
     }
     33% {
         opacity: 0;
-        transform: translateY(4rem);
+        transform: translateY(4rem) rotate(+10deg);
     }
     66% {
         opacity: 1;
-        transform: translateY(0rem);   
+        transform: translateY(0rem)rotate(0deg);   
     }
     100% {
         opacity: 1;
-        transform: translateY(-4rem);  
+        transform: translateY(-4rem) ;  
     }
 }
 
@@ -168,6 +181,7 @@ body {
     animation-fill-mode: forwards;
     animation-duration: 1.5s;       
     position: absolute;
+    transform-origin: top left;
 }
 
 @keyframes thirdLineAnimation {
@@ -181,11 +195,11 @@ body {
     }
     66% {
         opacity: 0;
-        transform: translateY(4rem);   
+        transform: translateY(4rem) rotate(+10deg);   
     }
     100% {
         opacity: 1;
-        transform: translateY(0rem);  
+        transform: translateY(0rem) rotate(0deg);  
     }
 }
 
@@ -218,3 +232,24 @@ body {
     border-radius: 1rem;
     border: 1px solid black;
 }
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+
+.navbar {
+    border: 1px solid black;
+    border-radius: 2rem;
+}
+
+.button {
+    background-color: inherit;
+    border: none;
+    padding: 1rem 2rem;
+}
+

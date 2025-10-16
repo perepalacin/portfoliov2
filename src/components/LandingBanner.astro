@@ -24,3 +24,27 @@
     </div>
     <img />
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loadingBanner = document.querySelector(".loading-banner") as HTMLElement | null;
+        const body = document.body;
+        const isAtTop = window.scrollY < 100;
+
+        if (!loadingBanner) return;
+        if (isAtTop) {
+            loadingBanner.classList.add("animate-out");
+
+            if (body) body.classList.add("no-scroll");
+
+            setTimeout(() => {
+                loadingBanner.classList.add("final-hidden");
+                if (body) body.classList.remove("no-scroll");
+            }, 2750);
+        } else {
+            if (body) body.classList.remove("no-scroll");
+            loadingBanner.style.height = "0";
+            loadingBanner.style.filter = "brightness(0.3)";
+            loadingBanner.classList.add("final-hidden");
+        }
+    });
+</script>

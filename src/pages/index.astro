@@ -1,6 +1,7 @@
 ---
 import LandingBanner from "../components/LandingBanner.astro";
 import LoadingBanner from "../components/LoadingBanner.astro";
+import NavBar from "../components/NavBar.astro";
 ---
 
 <html lang="en">
@@ -16,7 +17,8 @@ import LoadingBanner from "../components/LoadingBanner.astro";
         <title>Astro</title>
     </head>
     <body>
-        <LoadingBanner />
+        <LoadingBanner client:load />
         <LandingBanner />
+        <NavBar />
     </body>
 </html>
