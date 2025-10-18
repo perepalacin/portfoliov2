@@ -63,6 +63,12 @@ body {
 
 /* END OF GENERICS */
 
+.container {
+  max-height: 100vh;
+	overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
 .loading-banner {
     width: 100%;
     height: 100vh;
@@ -245,6 +251,7 @@ body {
 .navbar {
     border: 1px solid black;
     border-radius: 2rem;
+       font-weight: 500;
 }
 
 .button {
