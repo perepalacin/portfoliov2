@@ -1,0 +1,57 @@
+---
+
+---
+
+<section class="section">
+    <div class="section-2">
+        <div class="panel about-me">
+            <span class="w-100 h1 align-self-left">Greetings,</span>
+            <div class="about-me-text">
+                <p>
+                    I am <span>Pere Palacín, a <span id="years-old"></span> years old Software Engineer</span> from Barcelona mostly <span
+                        >Self-Taught</span
+                    > with a great interest in developping data intensive applications (Full Stack or Backend mainly).
+                    <br />
+                    <br />
+                    After my first few professional experiences as an Engineer, I rediscovered my <span>passion for programming</span> and Software
+                    in general. I would consider myself someone really <span>hungry for learning</span> and developing my own Software Tools
+                    offers me exactly that in order to
+                    <span>keep up with the everchanging tech landscape.</span>
+                    I particularly enjoy <span>diving deep into performance optimization</span>, trying to squeeze every bit of efficiency
+                    out of the system<span> by understanding how frameworks work under the hood</span> while maintaining <span
+                        >clean, testable, robust, and well-structured code.</span
+                    >
+                    <br />
+                    <br />
+                    I coded for the first time in <span>middleschool using C</span>, I then learned
+                    <span>Visual Basic in Highschool</span> and <span>Python at University.</span> During the last years, I have been studying
+                    on my own <span
+                        >Java, C and TypeScript. As well as other technologies and frameworks such as React, ExpressJS, Spring, SQL and
+                        NoSQL</span
+                    >. This Website is a record of my career as well as a collection of all the projects I've done so far using this
+                    technologies.
+                    <br />
+                    <br />
+                    <span>Please enjoy!</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="flair flair--20"></div>
+<script>
+    const today = new Date();
+    const dateBirth = new Date("1998-08-26");
+    let yearsOld = today.getFullYear() - dateBirth.getFullYear();
+    const hasBirthdayPassed =
+        today.getMonth() > dateBirth.getMonth() || (today.getMonth() === dateBirth.getMonth() && today.getDate() >= dateBirth.getDate());
+    if (!hasBirthdayPassed) {
+        yearsOld--;
+    }
+
+    const yearsOldHtml = document.getElementById("years-old");
+
+    if (yearsOldHtml) {
+        yearsOldHtml.innerText = String(yearsOld);
+    }
+</script>

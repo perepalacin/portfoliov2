@@ -1,5 +1,5 @@
 {
-    "extends": "astro/tsconfigs/strict",
+    "extends": "astro/tsconfigs/strictest",
     "include": [".astro/types.d.ts", "**/*", "src/**/*"],
     "exclude": ["dist"],
     "compilerOptions": {
@@ -30,8 +30,10 @@
         "strictPropertyInitialization": true,
         "sourceMap": true,
         "target": "ES2022",
-        "module": "NodeNext", // Change this to commonjs if we are using nest or vite.
-        "moduleResolution": "NodeNext", // Remove this if we are using nest or vite.
-        "typeRoots": ["./node_modules/@types"]
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "typeRoots": ["./node_modules/@types"],
+        "jsx": "react-jsx",
+        "jsxImportSource": "preact"
     }
 }

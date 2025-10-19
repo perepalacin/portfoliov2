@@ -1,7 +1,9 @@
 ---
 import LoadingBanner from "@/components/LoadingBanner.astro";
-import LandingBanner from "@/components/LandingBanner.astro";
 import NavBar from "@/components/NavBar.astro";
+import AboutMe from "@/components/pages/AboutMe.astro";
+import Career from "@/components/pages/Career.astro";
+import LandingBanner from "@/components/pages/LandingBanner.astro";
 ---
 
 <html lang="en">
@@ -18,7 +20,12 @@ import NavBar from "@/components/NavBar.astro";
     </head>
     <body>
         <LoadingBanner client:load />
-        <NavBar />
-        <LandingBanner />
+        <main>
+            <NavBar />
+            <LandingBanner />
+            <AboutMe />
+            <Career />
+            <!-- <GsapContainer client:load /> -->
+        </main>
     </body>
 </html>

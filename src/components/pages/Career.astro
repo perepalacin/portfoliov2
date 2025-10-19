@@ -1,0 +1,13 @@
+---
+import { CareerEditor } from "@/components/CareerEditor.tsx";
+import { CareerViewer } from "@/components/CareerViewer.tsx";
+---
+
+<section class="section">
+    <div class="section-3">
+        <div class="panel career-container">
+            <CareerViewer />
+            <CareerEditor client:only="preact" />
+        </div>
+    </div>
+</section>

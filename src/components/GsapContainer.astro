@@ -1,0 +1,112 @@
+---
+
+---
+
+<script>
+    import { gsap } from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+    import SplitText from "gsap/SplitText";
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(SplitText);
+
+    // const scroller = ".container";
+
+    // ScrollTrigger.defaults({
+    //     toggleActions: "restart pause resume pause",
+    //     scroller: scroller,
+    // });
+
+    // gsap.to(".flair", {
+    //     scrollTrigger: ".about-me",
+    //     duration: 0.2,
+    //     rotation: 360,
+    // });
+
+    // gsap.to(".landing-banner", {
+    //     scrollTrigger: {
+    //         trigger: ".landing-banner",
+    //         scroller: scroller,
+    //         start: "top top",
+    //         end: "bottom top",
+    //         scrub: true,
+    //     },
+
+    //     yPercent: 25,
+    //     filter: "brightness(1)",
+    //     transformOrigin: "center",
+    // });
+
+    // gsap.to(".bg", {
+    //     scrollTrigger: {
+    //         trigger: ".bg",
+    //         toggleActions: "restart pause reverse pause",
+    //     },
+    //     duration: 1,
+    //     backgroundColor: "#fffce1",
+    //     color: "#201f1f",
+    // });
+
+    // gsap.to(".yoyo p", {
+    //     scrollTrigger: ".yoyo",
+    //     scale: 2,
+    //     repeat: -1,
+    //     yoyo: true,
+    //     ease: "power2",
+    // });
+
+    const segmenter = new Intl.Segmenter("en", { granularity: "word" });
+
+    document.fonts.ready.then(() => {
+        gsap.set(".about-me-text", { opacity: 1 });
+
+        SplitText.create(".about-me-text", {
+            type: "words",
+            wordsClass: "word",
+            prepareText: (text, _el) => {
+                return [...segmenter.segment(text)].map((s) => s.segment).join(String.fromCharCode(8204));
+            },
+            wordDelimiter: { delimiter: /\u200c/, replaceWith: " " },
+            autoSplit: true,
+            onSplit: (self) => {
+                return gsap.from(self.words, {
+                    y: 5,
+                    opacity: 0,
+                    stagger: 0.05,
+                    ease: "back",
+                });
+            },
+        });
+    });
+
+    const panels = gsap.utils.toArray(".section") as HTMLElement[];
+    const transitionDuration = 1000;
+
+    panels.forEach((panel, i) => {
+        console.log(panel.childNodes);
+        const nextPanel = panels[i + 1];
+
+        if (!nextPanel) return;
+
+        gsap.set(nextPanel, { yPercent: 100, zIndex: 20 });
+
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: panel,
+                start: "top top",
+                end: `+=${transitionDuration}`,
+                pin: true,
+                pinSpacing: false,
+                scrub: true,
+                snap: {
+                    snapTo: [0, 1],
+                    duration: 0.3,
+                    ease: "power2.inOut",
+                },
+            },
+        });
+
+        tl.to(nextPanel, { yPercent: 0, ease: "linear" }, 0)
+            .to(panel, { y: 100, ease: "linear" }, 0.1)
+            .to(panel, { opacity: 0, ease: "none" }, 0.25);
+    });
+</script>

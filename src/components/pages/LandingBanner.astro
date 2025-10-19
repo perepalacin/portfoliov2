@@ -1,0 +1,54 @@
+---
+
+---
+
+<section class="section">
+    <div class="section-1">
+        <div class="landing-banner panel">
+            <h1>&gt; PERE PALACIN</h1>
+            <h2>SOFTWARE ENGINEER</h2>
+            <p>
+                Passionate developer with a knack for solving
+                <br />
+                complex problems through code. Mostly self-taught
+                <br />
+                and driven by an unyielding curiosity to explore
+                <br />
+                and master new technologies.
+            </p>
+            <div class="flex-row mt-1 gap-1">
+                <a href="https://github.com/perepalacin" class="icon-link" target="_blank">
+                    <img src="/icons/github.svg" width="20" height="20" loading="lazy" />
+                </a>
+                <a href="https://www.linkedin.com/in/perepalacin/" target="_blank" class="icon-link">
+                    <img src="/icons/linkedin.svg" width="20" height="20" loading="lazy" />
+                </a>
+            </div>
+            <img />
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loadingBanner = document.querySelector(".loading-banner") as HTMLElement | null;
+        const body = document.body;
+        const isAtTop = window.scrollY < 100;
+
+        if (!loadingBanner) return;
+        if (isAtTop) {
+            loadingBanner.classList.add("animate-out");
+
+            if (body) body.classList.add("no-scroll");
+
+            setTimeout(() => {
+                loadingBanner.classList.add("final-hidden");
+                if (body) body.classList.remove("no-scroll");
+            }, 2750);
+        } else {
+            if (body) body.classList.remove("no-scroll");
+            loadingBanner.style.height = "0";
+            loadingBanner.style.filter = "brightness(0.3)";
+            loadingBanner.classList.add("final-hidden");
+        }
+    });
+</script>

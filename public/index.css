@@ -22,9 +22,23 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
 
+.h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
 a {
     text-decoration: none;
     color: var(--main-text-color);
+}
+
+body {
+      margin: 0;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
@@ -40,6 +54,12 @@ body {
     padding: 0;
     margin: 0;
     gap: 1rem;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+ol {
+    padding: 0;
 }
 
 /* GENERIC CLASSES */
@@ -47,6 +67,10 @@ body {
 .flex-row {
     display: flex;
     flex-direction: row;
+}
+
+.w-100 {
+    width: 100%;
 }
 
 .gap-05 {
@@ -61,7 +85,28 @@ body {
     margin-top: 1rem;
 }
 
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.align-self-left {
+    align-self: left;
+    text-align: left;
+}
+
 /* END OF GENERICS */
+
+.panel {
+  scroll-snap-align: start;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  gap: 1
+}
 
 .loading-banner {
     width: 100%;
@@ -204,12 +249,13 @@ body {
 }
 
 .landing-banner {
-    height: 100vh;
     padding: 0rem 4rem;
     display: flex; 
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    transform-origin: center center; 
+    background-color: white;
 }
 
 .landing-banner h1 {
@@ -240,12 +286,13 @@ body {
     position: absolute;
     justify-content: center;
     padding-top: 1.5rem;
+    z-index: 100;
 }
 
 .navbar {
     border: 1px solid black;
     border-radius: 2rem;
-       font-weight: 500;
+    font-weight: 500;
 }
 
 .button {
@@ -254,3 +301,113 @@ body {
     padding: 1rem 2rem;
 }
 
+.about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 4rem;
+    background-color: yellowgreen;
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+}
+
+.about-me-text {
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+    min-width: 100%;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+.about-me-text p {
+    font-size: 18px; 
+    text-align: justify;
+}
+
+.about-me-text p span {
+    font-weight: 700;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+}
+
+.career-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    align-items: start;
+    gap: 2rem;
+    padding: 2rem 4rem;
+    position: relative;
+}
+
+.career-container > * {
+    max-width: 50%;
+    min-width: 50%;
+}
+
+.editor-container {
+    width: 100%;
+    height: calc(100vh - 4rem);
+    padding: 1rem 0.5rem;
+    border: 2px solid yellow;
+    border-radius: 2rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.editor {
+    width: 100%;
+    height: 100%;
+}
+
+.career-viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.career-viewer h2 {
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.career-item {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.career-item h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white
+}
+
+.career-item h6 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(226, 226, 226)
+}
+
+.career-item p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(226, 226, 226);
+    text-align: justify;
+    margin-bottom: 0.25rem;
+}
+
+.career-muted {
+    font-weight: 400;
+    opacity: 80%;
+    font-size: 0.8rem !important; 
+}
